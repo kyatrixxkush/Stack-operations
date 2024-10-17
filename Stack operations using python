@@ -1,0 +1,58 @@
+class Stack:
+    def __init__(self):
+        self.stack = []
+
+    #Add item to the stack
+    def push(self, item):
+        self.stack.append(item)
+        print(f"Pushed {item} onto the stack.")
+
+    #Remove top item from the stack
+    def pop(self):
+        if self.is_empty():
+            print("Stack is empty")
+            return None
+        item = self.stack.pop()
+        print(f"Popped {item} from the stack.")
+        return item
+
+    #Show item at the top of the stack
+    def peek(self):
+        if self.is_empty():
+            print("Stack is empty")
+            return None
+        print(f"Top of the stack is {self.stack[-1]}")
+        return self.stack[-1]
+
+    #Check if stack is empty
+    def is_empty(self):
+        return len(self.stack) == 0
+
+    #Display the current stack
+    def display(self):
+        if self.is_empty():
+            print("Stack is currently empty.")
+        else:
+            print("Current stack:", self.stack)
+
+if __name__ == "__main__":
+    stack = Stack()
+
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+
+    stack.display()
+    stack.peek()
+    stack.pop()
+    stack.display()
+
+    #Popping all remaining items
+    stack.pop()
+    stack.pop()
+
+    #Trying to pop from an empty stack
+    stack.pop()
+
+    # Final display to show the empty stack
+    stack.display()
